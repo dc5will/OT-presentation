@@ -32,16 +32,32 @@ export default class App extends Component {
     const { numPages, pageNumber } = this.state;
 
     return (
-
-      <div>
-      <Document
-        file={spacedRep}
-        onLoadSuccess={this.onDocumentLoadSuccess}
-      >
-        <Page pageNumber={pageNumber} />
-      </Document>
-      <p className='pages'>Page {pageNumber} of {numPages}</p>
-    </div>
+      <main>
+        <Document file={spacedRep} onLoadSuccess={this.onDocumentLoadSuccess}>
+          <Page pageNumber={pageNumber} />
+        </Document>
+        <div className="pages">
+          <div>
+            <p>
+              Page {pageNumber || (numPages ? 1 : "--")} of {numPages || "--"}
+            </p>
+            <button
+              type="button"
+              disabled={pageNumber <= 1}
+              onClick={this.previousPage}
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              disabled={pageNumber >= numPages}
+              onClick={this.nextPage}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </main>
     );
   }
 }
