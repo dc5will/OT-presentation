@@ -34,7 +34,7 @@ export default class App extends Component {
     return (
       <main>
         <Document file={spacedRep} onLoadSuccess={this.onDocumentLoadSuccess}>
-          <Page pageNumber={pageNumber} />
+          <Page pageNumber={pageNumber} height='1000'/>
         </Document>
         <div className="pages">
           <div>
