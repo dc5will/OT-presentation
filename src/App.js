@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { pdfjs, Document, Page } from "react-pdf";
 import spacedRep from "./pdf/spacedRep.pdf";
+import vrlayout from "./pdf/vrlayout.pdf";
 import "./App.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -33,7 +34,7 @@ export default class App extends Component {
 
     return (
       <main>
-        <Document file={spacedRep} onLoadSuccess={this.onDocumentLoadSuccess}>
+        <Document file={vrlayout} onLoadSuccess={this.onDocumentLoadSuccess}>
           <Page pageNumber={pageNumber} height='1000'/>
         </Document>
         <div className="pages">
